@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, combineReduxers, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
+// import AppContainer from '../app/container/appcontainer'
 
 const loggerMiddleware = createLogger({
   predicte: (getState, action) => __DEV__
@@ -18,6 +19,7 @@ function configureStore(intitalState) {
   );
 
   var reducer = () => { };
+
   return createStore(reducer, intitalState, enhancer);
 }
 
@@ -31,7 +33,9 @@ const Application = () => {
 export default class App extends React.Component {
   render() {
     return (
+      //Provider wrapps our app in redux
       <Provider store={store}>
+        {/*<AppContainer />*/}
         <Text>Hello</Text>
       </Provider>
     );
