@@ -1,11 +1,11 @@
-import {GETTING_LOCATION, GOT_LOCATION_FAILED, GOT_LOCATION_SUCCESS} from '../constants';
+import { GETTING_LOCATION, GOT_LOCATION_FAILED, GOT_LOCATION_SUCCESS, POST_LOCATION } from '../constants';
 
 const initialState = {
   data: {},
   error: null
 }
 
-export default function locationReducer (state = initialState, action) {
+export default function locationReducer(state = initialState, action) {
   switch (action.type) {
     case GETTING_LOCATION:
       return {
@@ -22,6 +22,12 @@ export default function locationReducer (state = initialState, action) {
         ...state,
         error: action.error
       }
+    case POSTING_LOCATION:
+      return {
+        ...state,
+        data: action.data
+      }
+
     default:
       return state
   }

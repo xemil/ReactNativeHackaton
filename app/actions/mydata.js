@@ -2,6 +2,13 @@ import * as types from './types';
 
 var root = 'https://jsonplaceholder.typicode.com';
 
+export function postPoistion(data) {
+  return {
+    type: POST_LOCATION,
+    data: data
+  }
+}
+
 export function fetchMyData() {
     console.log('i am in fetchmyDara');
   
