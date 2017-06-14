@@ -1,10 +1,10 @@
-<<<<<<< HEAD
-This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
 
-Below you'll find information about performing common tasks. The most recent version of this guide is available [here](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md).
+![alt text][logo]
+
+[logo]: http://hackaton.cs.scania.com/HACKATON.jpg "Logo Title Text 2"
 
 ## Table of Contents
-
+* [Scania Hackaton 2017](#scania-hackaton-2017)
 * [Updating to New Releases](#updating-to-new-releases)
 * [Available Scripts](#available-scripts)
   * [npm start](#npm-start)
@@ -27,6 +27,12 @@ Below you'll find information about performing common tasks. The most recent ver
   * [Networking](#networking)
   * [iOS Simulator won't open](#ios-simulator-wont-open)
   * [QR Code does not scan](#qr-code-does-not-scan)
+
+
+## Scania Hackaton 2017
+
+
+Below you'll find information about performing common tasks. The most recent version of this guide is available [https://hackaton.cs.scania.com/](https://hackaton.cs.scania.com)
 
 ## Updating to New Releases
 
@@ -220,6 +226,8 @@ If you're not able to scan the QR code, make sure your phone's camera is focusin
 
 If this causes problems for you, you may want to try changing your terminal's color theme to have more contrast, or running Create React Native App from a different terminal. You can also manually enter the URL printed by the packager script in the Expo app's search bar to load it manually.
 =======
-# ReactNativeHackaton
-Scania KS Hackaton 2017
->>>>>>> 2e104f94878facd2baf1b8fba1b07cae3efe1b13
+
+
+// xEmil 
+https://github.com/xemil/ReactNativeHackaton/
+

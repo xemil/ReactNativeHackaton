@@ -4,15 +4,15 @@ import { connect, bindActionCreators } from 'react-redux';
 import { ActionCreators } from '../actions';
 
 class AppContainer extends Component {
-  constructor(props) {  
-      this.state = {
-          textFromApi: 'not fetched yet'
-      };
+    constructor(props) {
+        this.state = {
+            textFromApi: 'not fetched yet'
+        };
 
-      super(props);
-  }
-  
- 
+        super(props);
+    }
+
+
     render() {
         return (
             <View>
