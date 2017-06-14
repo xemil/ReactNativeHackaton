@@ -22,7 +22,7 @@ export default function locationReducer(state = initialState, action) {
         ...state,
         error: action.error
       }
-    case POSTING_LOCATION:
+    case POST_LOCATION:
       return {
         ...state,
         data: action.data

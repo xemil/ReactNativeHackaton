@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, TextInput } from 'react-native';
 import { connect } from 'react-redux';
 //import { ActionCreators } from '../actions';
 
@@ -7,14 +7,18 @@ import { getCurrentPosition } from '../actions/location';
 import fetchMyData from '../actions/mydata';
 import types from '../actions/types';
 
-const AppContainer = (props) => {
+const AppContainer = (props, state) => {
     return (
         <View>
             <Text>
               Scania TrackMe
             </Text>
-            <Button onPress={() => props.getCurrentPosition()} title='Start' />
-            <Text>props.locationData</Text>
+            <TextInput
+placeholder="Enter name"
+onTextChanged={ (newValue) => this.setState(name)}>
+</TextInput>
+            <Button onPress={() => props.getCurrentPosition(state.name)} title='Start' />
+            //<Text>{props.locationData.data.coords.longitude}, {props.locationData.data.coords.latitude}</Text>
         </View>
     );
 }
