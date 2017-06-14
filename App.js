@@ -4,6 +4,8 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, combineReduxers, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
+import fetchMyData from './app/actions/mydata';
+import types from './app/actions/types';
 // import AppContainer from '../app/container/appcontainer'
 
 const loggerMiddleware = createLogger({
@@ -40,6 +42,27 @@ export default class App extends React.Component {
       </Provider>
     );
   }
+
+  componentDidMount() {
+    const { dispatch, getState } = this.props
+    console.log('hämtar datan');
+     fetchMyData();
+     
+      // this.props.fetchRecipes().then( (res) => {
+      // this.setState({searching: false })
+    // }
+    // );
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(ActionCreators, dispatch);
+}
+
+function mapStateToProps(state) {
+  return {
+    navigationState: state.navigationState
+  };
 }
 
 const styles = StyleSheet.create({
