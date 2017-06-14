@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, combineReduxers, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
+import { getCurrentPosition } from './app/actions/location';
 // import AppContainer from '../app/container/appcontainer'
 
 const loggerMiddleware = createLogger({
@@ -31,12 +32,22 @@ const Application = () => {
   </Provider>
 }
 export default class App extends React.Component {
+  constructor(props){
+    super(props);
+  }
+
+  componentDidMount(){
+    var pos = getCurrentPosition();
+  }
+
   render() {
     return (
       //Provider wrapps our app in redux
       <Provider store={store}>
         {/*<AppContainer />*/}
+        <View>
         <Text>Hello</Text>
+        </View>
       </Provider>
     );
   }
