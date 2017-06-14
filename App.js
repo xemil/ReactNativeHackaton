@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { Provider } from 'react-redux';
+import { Provider, connect } from 'react-redux';
 import { createStore, applyMiddleware, combineReduxers, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
-<<<<<<< HEAD
+import reducerRoot from './app/reducers';
 import { getCurrentPosition } from './app/actions/location';
-=======
 import fetchMyData from './app/actions/mydata';
 import types from './app/actions/types';
->>>>>>> f569ebf28fd23db96df29347000c92977df7f295
 // import AppContainer from '../app/container/appcontainer'
 
 const loggerMiddleware = createLogger({
@@ -24,9 +22,7 @@ function configureStore(intitalState) {
     )
   );
 
-  var reducer = () => { };
-
-  return createStore(reducer, intitalState, enhancer);
+  return createStore(reducerRoot, intitalState, enhancer);
 }
 
 const store = configureStore({});
@@ -36,13 +32,15 @@ const Application = () => {
     <AppContainer />
   </Provider>
 }
+
 export default class App extends React.Component {
   constructor(props){
     super(props);
   }
 
-  componentDidMount(){
-    var pos = getCurrentPosition();
+  componentDidMount() {
+    console.log('hämtar datan');
+     //props.getCurrentPosition();
   }
 
   render() {
@@ -56,27 +54,19 @@ export default class App extends React.Component {
       </Provider>
     );
   }
+}
 
-  componentDidMount() {
-    const { dispatch, getState } = this.props
-    console.log('hämtar datan');
-     fetchMyData();
-     
-      // this.props.fetchRecipes().then( (res) => {
-      // this.setState({searching: false })
-    // }
-    // );
+function mapDispatchToProps (dispatch) {
+  return {
+    fetchMyData: () => dispatch(fetchMyData()),
+    getCurrentPosition: () => dispatch(getCurrentPosition())
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(ActionCreators, dispatch);
-}
-
-function mapStateToProps(state) {
+function mapStateToProps (state) {
   return {
-    navigationState: state.navigationState
-  };
+    locationData: state.locationData
+  }
 }
 
 const styles = StyleSheet.create({
