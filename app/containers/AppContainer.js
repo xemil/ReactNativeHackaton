@@ -1,31 +1,35 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
-import { connect, bindActionCreators } from 'react-redux';
-import { ActionCreators } from '../actions';
+import { View, Text, Button } from 'react-native';
+import { connect } from 'react-redux';
+//import { ActionCreators } from '../actions';
 
-class AppContainer extends Component {
-    constructor(props) {
-        this.state = {
-            textFromApi: 'not fetched yet'
-        };
+import { getCurrentPosition } from '../actions/location';
+import fetchMyData from '../actions/mydata';
+import types from '../actions/types';
 
-        super(props);
-    }
-
-
-    render() {
-        return (
-            <View>
-                <Text>I am the Container Component
-                        Text from state: {this.state.textFromApi}
-                </Text>
-            </View>
-        );
-    }
+const AppContainer = (props) => {
+    return (
+        <View>
+            <Text>
+              Scania TrackMe
+            </Text>
+            <Button onPress={() => props.getCurrentPosition()} title='Start' />
+            <Text>props.locationData</Text>
+        </View>
+    );
 }
 
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators(ActionCreators, dispatch);
+function mapDispatchToProps (dispatch) {
+  return {
+    fetchMyData: () => dispatch(fetchMyData()),
+    getCurrentPosition: () => dispatch(getCurrentPosition())
+  }
 }
 
-export default connect(() => { return {}, mapDispatchToProps })(AppContainer);
+function mapStateToProps (state) {
+  return {
+    locationData: state.locationData
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);
