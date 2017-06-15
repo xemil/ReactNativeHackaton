@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { View, Text, Button, TextInput, StyleSheet, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
 //import { ActionCreators } from '../actions';
-
 import { getCurrentPosition } from '../actions/location';
 import fetchMyData from '../actions/mydata';
 import types from '../actions/types';
@@ -40,11 +39,17 @@ const AppContainer = (props, state) => {
             </Text>
       <TextInput style={[styles.box, styles.box2]}
         placeholder="Enter name"
-        onTextChanged={(newValue) => this.setState(name)}>
-
+        onChangeText={(newValue) => {        
+        console.log('text change is triggerd:')
+        console.log(newValue)
+        this.setState(newValue)}
+        }>
       </TextInput>
       <Button style={[styles.box, styles.box1]} title='Start' onPress={() => {
+       console.log('props:')
         console.log(props)
+        console.log('state:')
+        console.log(state.name);
         props.getCurrentPosition(state.name)
       }} />
       {/*<Text>{props.locationData.data.coords.longitude}, {props.locationData.data.coords.latitude}</Text>*/}

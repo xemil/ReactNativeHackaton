@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import configureStore from './app/configureStore';
 import AppContainer from './app/containers/AppContainer'
 
-const store = configureStore();
+const store = configureStore({});
 
 export default class App extends React.Component {
   constructor(props){
