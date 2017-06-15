@@ -8,32 +8,37 @@ import fetchMyData from '../actions/mydata';
 import types from '../actions/types';
 
 const AppContainer = (props, state) => {
-    return (
-        <View>
-            <Text>
-              Scania TrackMe
+  return (
+    <View>
+      <Text>
+        Scania TrackMe
             </Text>
-            <TextInput
-placeholder="Enter name"
-onTextChanged={ (newValue) => this.setState(name)}>
-</TextInput>
-            <Button onPress={() => props.getCurrentPosition(state.name)} title='Start' />
-            {/*<Text>{props.locationData.data.coords.longitude}, {props.locationData.data.coords.latitude}</Text>*/}
-        </View>
-    );
+      <TextInput
+        placeholder="Enter name"
+        onTextChanged={(newValue) => this.setState(name)}>
+      </TextInput>
+      <Button title='Start' onPress={() => {
+        console.log(props)
+        props.getCurrentPosition(state.name)
+      }} />
+      {/*<Text>{props.locationData.data.coords.longitude}, {props.locationData.data.coords.latitude}</Text>*/}
+
+    </View>);
 }
 
-function mapDispatchToProps (dispatch) {
+function mapDispatchToProps(dispatch) {
   return {
     fetchMyData: () => dispatch(fetchMyData()),
     getCurrentPosition: () => dispatch(getCurrentPosition())
   }
 }
 
-function mapStateToProps (state) {
+function mapStateToProps(state) {
   return {
     locationData: state.locationData
   }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);
+
+
