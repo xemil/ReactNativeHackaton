@@ -1,3 +1,8 @@
+
+
+//DESISERD FLOW
+// React component --> dispatch ---> API call (thunk middleware) --> dispatch ---> reducer
+
 import React, { Component } from 'react';
 import { View, Text, Button, TextInput, StyleSheet, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
@@ -44,12 +49,9 @@ const AppContainer = (props, state) => {
           console.log('text change is triggerd:')
           console.log(newValue)
           console.log(state);
-          //STORE IS THE FIRST STEP IN DATA FLOW
-          {/*http://redux.js.org/docs/basics/DataFlow.html*/}
-          store.dispatch({
-            type: 'CHANGE_TEXTINPUT',
-            textInput: newValue
-          });
+          //ACTION TO FIRE SHOULD BE ON PROPS
+          //WHY IS NOT change text input on props?
+          props.changeTextInput(newValue);
         }}>
       </TextInput>
       <Button style={[styles.box, styles.box1]} title='Start' onPress={() => {
@@ -67,13 +69,15 @@ const AppContainer = (props, state) => {
 function mapDispatchToProps(dispatch) {
   return {
     fetchMyData: () => dispatch(fetchMyData()),
-    getCurrentPosition: () => dispatch(getCurrentPosition())
+    getCurrentPosition: () => dispatch(getCurrentPosition()),
+    changeTextInput: () => dispatch(changeTextInput())
   }
 }
 
 function mapStateToProps(state) {
   return {
     locationData: state.locationData
+
   }
 }
 
