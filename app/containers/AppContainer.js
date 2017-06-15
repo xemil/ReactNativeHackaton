@@ -3,6 +3,7 @@ import { View, Text, Button, TextInput, StyleSheet, Dimensions } from 'react-nat
 import { connect } from 'react-redux';
 //import { ActionCreators } from '../actions';
 import { getCurrentPosition } from '../actions/location';
+import { changeTextInput } from '../actions/changeTextInput'
 import fetchMyData from '../actions/mydata';
 import types from '../actions/types';
 
@@ -39,14 +40,20 @@ const AppContainer = (props, state) => {
             </Text>
       <TextInput style={[styles.box, styles.box2]}
         placeholder="Enter name"
-        onChangeText={(newValue) => {        
-        console.log('text change is triggerd:')
-        console.log(newValue)
-        this.setState(newValue)}
-        }>
+        onChangeText={(newValue) => {
+          console.log('text change is triggerd:')
+          console.log(newValue)
+          console.log(state);
+          //STORE IS THE FIRST STEP IN DATA FLOW
+          {/*http://redux.js.org/docs/basics/DataFlow.html*/}
+          store.dispatch({
+            type: 'CHANGE_TEXTINPUT',
+            textInput: newValue
+          });
+        }}>
       </TextInput>
       <Button style={[styles.box, styles.box1]} title='Start' onPress={() => {
-       console.log('props:')
+        console.log('props:')
         console.log(props)
         console.log('state:')
         console.log(state.name);
