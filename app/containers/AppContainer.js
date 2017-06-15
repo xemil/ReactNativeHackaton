@@ -18,7 +18,7 @@ placeholder="Enter name"
 onTextChanged={ (newValue) => this.setState(name)}>
 </TextInput>
             <Button onPress={() => props.getCurrentPosition(state.name)} title='Start' />
-            //<Text>{props.locationData.data.coords.longitude}, {props.locationData.data.coords.latitude}</Text>
+            {/*<Text>{props.locationData.data.coords.longitude}, {props.locationData.data.coords.latitude}</Text>*/}
         </View>
     );
 }
