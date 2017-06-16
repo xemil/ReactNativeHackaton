@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Provider } from 'react-redux';
 import configureStore from './app/configureStore';
-import AppContainer from './app/containers/AppContainer'
+import AppContainer from './app/containers/AppContainer';
+import rootReducer from './app/reducers/index';
 
-const store = configureStore();
+//INSERT ROOT REDUCER HERE
+// http://redux.js.org/docs/recipes/reducers/UsingCombineReducers.html
+const store = configureStore(rootReducer);
 
 export default class App extends React.Component {
   constructor(props){
