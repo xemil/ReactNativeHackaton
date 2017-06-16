@@ -1,4 +1,4 @@
-import { GETTING_LOCATION, GOT_LOCATION_FAILED, GOT_LOCATION_SUCCESS, POST_LOCATION } from '../constants';
+import { GETTING_LOCATION, GOT_LOCATION_FAILED, GOT_LOCATION_SUCCESS, POST_LOCATION, GOT_NAME } from '../constants';
 
 const initialState = {
   data: {},
@@ -26,6 +26,11 @@ export default function locationReducer(state = initialState, action) {
       return {
         ...state,
         data: action.data
+      }
+      case GOT_NAME:
+      return {
+        ...state,
+        name: action.name
       }
 
     default:
