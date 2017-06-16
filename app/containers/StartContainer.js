@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-//import { ActionCreators } from '../actions';
 
 import { getCurrentPosition } from '../actions/location';
 import fetchMyData from '../actions/mydata';
@@ -22,4 +21,4 @@ function mapStateToProps (state) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(start);
+export default connect(mapStateToProps, mapDispatchToProps)(Start);
