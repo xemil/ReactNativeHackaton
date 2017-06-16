@@ -29,8 +29,8 @@ onChangeText={this.onNameChanged.bind(this)}>
 </TextInput>
             <Button disabled={!this.state.name} onPress={this.onSaveClick.bind(this)} title='Start' />
             
-            <Text>{this.props.locationData?this.props.locationData.data.coords.longitude+', ':''}, 
-              {this.props.locationData?this.props.locationData.data.coords.latitude:''}</Text>
+            <Text>{this.props.locationData.coords?this.props.locationData.coords.longitude:''}, 
+              {this.props.locationData.coords?this.props.locationData.coords.latitude:''}</Text>
         </View>
 
         );

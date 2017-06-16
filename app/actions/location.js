@@ -57,8 +57,8 @@ export function getCurrentPosition(id) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          id: id,
-          position: pos
+          name: id,
+          pos: pos
         })
       })
       .then(function(){
