@@ -72,6 +72,10 @@ export function getCurrentPosition(id) {
     }, function (e) {
       console.warn(e);
       dispatch(getLocationFailed(e));
+    },{
+      enableHighAccuracy: false,
+      timeout: 20000,
+      maximumAge: 1000
     });
   }
 }
