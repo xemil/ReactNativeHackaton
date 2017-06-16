@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Provider } from 'react-redux';
 import configureStore from './app/configureStore';
-import AppContainer from './app/containers/AppContainer';
+import StartContainer from './app/containers/StartContainer';
 import rootReducer from './app/reducers/index';
 
 //INSERT ROOT REDUCER HERE
@@ -18,7 +18,9 @@ export default class App extends React.Component {
     return (
       //Provider wrapps our app in redux
       <Provider store={store}>
-        <AppContainer />
+        <View style={styles.container}>
+          <StartContainer />
+        </View>
       </Provider>
     );
   }

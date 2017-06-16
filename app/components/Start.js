@@ -1,20 +1,36 @@
 import React, { Component } from 'react';
-import { View, Text, Button, TextInput } from 'react-native';
+import { StyleSheet, View, Text, Button, TextInput } from 'react-native';
 
 export default class Start extends Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      name: ''
+    };
+  }
+
+  onNameChanged(newValue){
+     this.setState({name: newValue});
+  }
+
+  onSaveClick(){
+    this.props.getCurrentPosition(this.state.name);
+  }
+
     render(){
         return (
          <View>
-            <Text>
+            <Text style={styles.title}>
               Scania TrackMe
             </Text>
-            <TextInput
+            <TextInput style={styles.editor}
 placeholder="Enter name"
-onTextChanged={ (newValue) => this.setState(name)}>
+onChangeText={this.onNameChanged.bind(this)}>
 </TextInput>
-            <Button onPress={() => props.getCurrentPosition(props.name)} title='Start' />
-            <Text>{this.state.name}</Text>
-            //<Text>{props.locationData.data.coords.longitude}, {props.locationData.data.coords.latitude}</Text>
+            <Button disabled={!this.state.name} onPress={this.onSaveClick.bind(this)} title='Start' />
+            
+            <Text>{this.props.locationData?this.props.locationData.data.coords.longitude+', ':''}, 
+              {this.props.locationData?this.props.locationData.data.coords.latitude:''}</Text>
         </View>
 
         );
@@ -23,10 +39,14 @@ onTextChanged={ (newValue) => this.setState(name)}>
 
 
 const styles = StyleSheet.create({
-  counter: {
+  title: {
     padding: 30,
     alignSelf: 'center',
     fontSize: 26,
     fontWeight: 'bold',
   },
+  editor: {
+    height: 20,
+    margin: 2
+  }
 });
