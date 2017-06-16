@@ -48,6 +48,7 @@ export function getCurrentPosition(id) {
     console.log('call geolocation');
     navigator.geolocation.getCurrentPosition(function (pos) {
       console.log('saving position');
+
       //POSTING DATA
       fetch('https://wi15x59ehl.execute-api.eu-west-1.amazonaws.com/dev/todos/', {
         method: 'POST',
@@ -57,8 +58,7 @@ export function getCurrentPosition(id) {
         },
         body: JSON.stringify({
           id: id,
-          lat: '33',
-          lng: '44'
+          position: pos
         })
       })
       .then(function(){
