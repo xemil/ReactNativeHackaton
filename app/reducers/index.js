@@ -1,16 +1,11 @@
-/*
-import { combineReducers } from 'redux';
-import * as myDataReducer from './myData';
-
-export default combineReducers(Object.assign(
-    myDataReducer
-));
-*/
 import { combineReducers } from 'redux'
-import locationData from './locationReducer'
+import locationReducer from './locationReducer'
+import textinputReducer from './textinputReducer'
 
 const rootReducer = combineReducers({
-    locationData
+    locationReducer,
+    //ERROR HERE
+    textinputReducer
 })
 
 export default rootReducer

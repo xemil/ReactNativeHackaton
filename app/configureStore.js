@@ -8,7 +8,9 @@ const loggerMiddleware = createLogger({
   predicte: (getState, action) => __DEV__
 });
 
-export default function configureStore(intitalState) {
+const intitalState = {}
+
+export default function configureStore() {
   const enhancer = compose(
     applyMiddleware(
       thunkMiddleware,

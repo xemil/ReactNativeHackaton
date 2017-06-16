@@ -37,3 +37,4 @@ export default function locationReducer(state = initialState, action) {
       return state
   }
 }
+  
