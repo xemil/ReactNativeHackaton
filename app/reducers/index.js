@@ -1,11 +1,10 @@
-import { combineReducers } from 'redux'
-import locationReducer from './locationReducer'
-import textinputReducer from './textinputReducer'
+import { combineReducers } from 'redux';
+import locationReducer from './locationReducer';
+import textinputReducer from './textinputReducer';
 
 const rootReducer = combineReducers({
-    locationReducer,
-    //ERROR HERE
-    textinputReducer
-})
+	locationReducer,
+	textinputReducer
+});
 
-export default rootReducer
+export default rootReducer;

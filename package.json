@@ -1,6 +1,6 @@
 {
-  "name": "ScaniaFindMe",
-  "version": "0.1.0",
+  "name": "ScaniaTrackMe",
+  "version": "0.1.1",
   "private": true,
   "devDependencies": {
     "react-native-scripts": "0.0.31",
@@ -19,6 +19,7 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "eslint": "^4.0.0",
     "expo": "^17.0.0",
     "react": "16.0.0-alpha.6",
     "react-logger": "^1.1.0",
