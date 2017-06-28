@@ -1,5 +1,12 @@
 {
   "expo": {
-    "sdkVersion": "17.0.0"
+    "sdkVersion": "17.0.0",
+    "name": "Scania TrackMe",
+    "slug": "scaniatrackme",
+    "description": "Virtual tracking defice for reporting equipment position to the Fleet Management Portal (FMP)",
+    "privacy": "unlisted",
+    "orientation": "portrait",
+    "primaryColor": "#2C4164",
+    "icon": "./app/resources/griffin.png"
   }
 }

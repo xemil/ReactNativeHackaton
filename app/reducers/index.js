@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import locationReducer from './locationReducer';
-import textinputReducer from './textinputReducer';
+import inputReducer from './inputReducer';
 
 const rootReducer = combineReducers({
 	locationReducer,
-	textinputReducer
+	inputReducer
 });
 
 export default rootReducer;

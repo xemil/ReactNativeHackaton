@@ -60,6 +60,12 @@ npm start -- --reset-cache
 yarn start -- --reset-cache
 ```
 
+#### `npm run flow`
+
+Starts the [flow watch](https://medium.com/react-native-training/getting-started-with-react-native-and-flow-d40f55746809)
+
+Requires Flow Support for VS Code plugin with `javascript.validate.enable` to false in your options.
+
 #### `npm test`
 
 Runs the [jest](https://github.com/facebook/jest) test runner on your tests.

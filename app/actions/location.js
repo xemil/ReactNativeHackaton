@@ -62,22 +62,22 @@ export function getCurrentPosition(id) {
 					pos: pos
 				})
 			})
-				.then(function(){
+				.then(function () {
 					dispatch(gotLocation(pos));
 				})
-				.catch(function (ex){
+				.catch(function (ex) {
 					console.warn(e);
 					dispatch(getLocationFailed(e));
 				});
-      
+
 		}, function (e) {
 			console.warn(e);
 			dispatch(getLocationFailed(e));
-		},{
-			enableHighAccuracy: false,
-			timeout: 20000,
-			maximumAge: 1000
-		});
+		}, {
+				enableHighAccuracy: false,
+				timeout: 20000,
+				maximumAge: 1000
+			});
 	};
 	/* eslint-enable no-console */
 }
